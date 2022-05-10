@@ -9,6 +9,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/HomeScreen';
 import MapScreen from './screens/MapScreen';
+import EatScreen from './screens/EatScreen';
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -27,6 +28,13 @@ export default function App() {
             <Stack.Screen
               name="MapScreen"
               component={MapScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="EatScreen"
+              component={EatScreen}
               options={{
                 headerShown: false,
               }}
