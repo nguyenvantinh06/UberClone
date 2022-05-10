@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text, View, FlatList, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
-import {Icon} from 'react-native-elements';
+import { Icon } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 const dummyDATA = [
   {
     id: '123',
@@ -18,9 +19,13 @@ const dummyDATA = [
 ];
 
 const NavOptions = () => {
+  const navigation = useNavigation();
   const renderItem = ({item}) => {
     return (
-      <TouchableOpacity style={{marginRight: 10}}>
+      <TouchableOpacity
+        style={{ marginRight: 10 }}
+        onPress={()=> navigation.navigate(item.screen)}      
+        >
         <View style={styles.containerNavOptions}>
           <Image
             source={{uri: item.image}}
