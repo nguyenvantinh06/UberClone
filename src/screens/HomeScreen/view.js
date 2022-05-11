@@ -4,7 +4,7 @@ import styles from './styles';
 import NavOptions from '../../components/NavOptions';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from '@env';
-import {setDestination, setOrigin} from '~/appRedux/slices/navSlices';
+import {setDestination, setOrigin} from '../../appRedux/slices/navSlices';
 import {useDispatch} from 'react-redux';
 // navigator.geolocation = require('react-native-geolocation-service');
 
@@ -30,6 +30,13 @@ const HomeScreen = () => {
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
           console.log(data, details);
+          dispatch(
+            setOrigin({
+              location: details.geometry.location,
+              description: data.description,
+            }),
+          );
+          dispatch(setDestination(null));
         }}
         fetchDetails={true}
         returnKeyType={'search'}
