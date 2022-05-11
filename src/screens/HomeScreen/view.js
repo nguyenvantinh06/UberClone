@@ -4,10 +4,12 @@ import styles from './styles';
 import NavOptions from '../../components/NavOptions';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import {GOOGLE_MAPS_APIKEY} from '@env';
-
+import {setDestination, setOrigin} from '~/appRedux/slices/navSlices';
+import {useDispatch} from 'react-redux';
 // navigator.geolocation = require('react-native-geolocation-service');
 
 const HomeScreen = () => {
+  const dispatch = useDispatch();
   return (
     <SafeAreaView style={styles.container}>
       <Image
